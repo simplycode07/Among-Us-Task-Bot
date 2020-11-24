@@ -1,4 +1,4 @@
-Among Us Wire Bot
+# Among Us Wire Bot
 
 Okay, So I made this bot with pyautogui to automate wire task in Among Us. And to use it run the python program and then press Shift + C to start wire task and Shift + Q to quit the program.
 
