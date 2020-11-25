@@ -61,7 +61,7 @@ def card_task():
     # moving cursor to starting position
     pyautogui.moveTo(x_card[1], y_card[1])
 
-    # draging cursor to end point of the card swipe
+    # dragging cursor to end point of the card swipe
     pyautogui.dragTo(x_card[2], y_card[2], 1, button='left')
 
 def prime_shields():
