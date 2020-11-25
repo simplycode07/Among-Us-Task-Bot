@@ -3,6 +3,7 @@ import pyautogui
 import keyboard
 import timeit
 
+
 def main():
     pyautogui.PAUSE = 0
     print("""the program has started
@@ -16,7 +17,7 @@ def main():
             card_task()
         if(keyboard.is_pressed('q') and keyboard.is_pressed('shift')):
             break
-        sleep(0.15) #this is optional. this reduces system load if you have a low end pc
+        sleep(0.15) # reduces system load for low end pc (optional)
     print("Done")
 
 
@@ -28,7 +29,7 @@ def wiring_task():
                           "(255, 235, 4)": heights[2], "(255, 0, 255)": heights[3]}
     print("Starting Wiring Task")
     start_time = timeit.default_timer()
-    # colordict[location"] = pixel color
+    # colordict["location"] = pixel color
     # to print 272,462,647,833 could be faster probably not
     for x in range(4):
         # 1905
