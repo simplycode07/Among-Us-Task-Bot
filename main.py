@@ -5,14 +5,19 @@ import timeit
 
 
 def main():
-    # consts to make program marginally faster
-
     pyautogui.PAUSE = 0
+    print("""the program has started
+1. press Shift + Q to quit the program
+2. press Shift + C to do card swipe
+3. press Shift + W to do wire task""")
     while True:
-        if(keyboard.is_pressed('c') and keyboard.is_pressed('shift')):
+        if(keyboard.is_pressed('w') and keyboard.is_pressed('shift')):
             wiring_task()
+        if(keyboard.is_pressed('c') and keyboard.is_pressed('shift')):
+            card_task()
         if(keyboard.is_pressed('q') and keyboard.is_pressed('shift')):
             break
+        sleep(0.15) #this is optional. this reduces system load if you have a low end pc
     print("Done")
 
 
@@ -39,7 +44,19 @@ def wiring_task():
             print("invalid key try again")
     print("Time to complete Wiring Task: " +
           str(round(timeit.default_timer() - start_time, 2)) + " seconds")
+def card_task():
+    x_card = [545, 393, 1114]
+    y_card = [592, 300, 300]
+    
+    # clicking on wallet to take out the card
+    pyautogui.click(x=x_card[0], y=y_card[0])
 
+    sleep(0.5) # waiting for animation to over
+    # moving cursor to starting position
+    pyautogui.moveTo(x_card[1], y_card[1])
+
+    # draging cursor to end point of the card swipe
+    pyautogui.dragTo(x_card[2], y_card[2], 1, button='left')
 
 if __name__ == "__main__":
     main()
