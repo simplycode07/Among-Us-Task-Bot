@@ -3,7 +3,6 @@ import pyautogui
 import keyboard
 import timeit
 
-
 def main():
     pyautogui.PAUSE = 0
     print("""the program has started
