@@ -9,12 +9,18 @@ def main():
     print("""the program has started
 1. press Shift + Q to quit the program
 2. press Shift + C to do card swipe
-3. press Shift + W to do wire task""")
+3. press Shift + W to do wire task
+4. press Shift + P to do prime shield task
+5. press Shift + G to do grabage task""")
     while True:
         if(keyboard.is_pressed('w') and keyboard.is_pressed('shift')):
             wiring_task()
         if(keyboard.is_pressed('c') and keyboard.is_pressed('shift')):
             card_task()
+        if(keyboard.is_pressed('p') and keyboard.is_pressed('shift')):
+            prime_shields()
+        if(keyboard.is_pressed('g') and keyboard.is_pressed('shift')):
+            garbage()
         if(keyboard.is_pressed('q') and keyboard.is_pressed('shift')):
             break
         sleep(0.15) # reduces system load for low end pc (optional)
@@ -58,5 +64,32 @@ def card_task():
     # draging cursor to end point of the card swipe
     pyautogui.dragTo(x_card[2], y_card[2], 1, button='left')
 
+def prime_shields():
+    
+    print("starting shield task")
+    
+    x_button = [685,803,824,671,582,560,692]
+    y_button = [233,319,447,522,463,323,336]
+    
+    for i in range(len(x_button)):
+        #getting color value of each point
+        color = pyautogui.pixel(x_button[i], y_button[i])
+        print(color)
+        #checking if the color is red and if it is the we will click on it
+        if color == (202, 83, 100) or color == (202, 86, 105) or color == (202, 91, 109) or color == (202, 95, 112) or color == (202, 98, 117) or color == (202, 102, 120) or color == (202, 106, 124):
+            print(f"unprimed shield detected at {x_button[i]}, {y_button[i]}")
+            pyautogui.click(x=x_button[i], y=y_button[i])
+
+def garbage():
+    #(x=898, y=296) and (x=912, y=508)
+    pyautogui.moveTo(898, 296)
+    pyautogui.mouseDown(button="left")
+    sleep(0.2)
+    pyautogui.moveTo(912, 508)
+    sleep(1.5)
+    pyautogui.mouseUp(button="left")
+    print("grabage done")
+        
+    
 if __name__ == "__main__":
     main()
