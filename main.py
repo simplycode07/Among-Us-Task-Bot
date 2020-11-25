@@ -61,7 +61,7 @@ def card_task():
     # moving cursor to starting position
     pyautogui.moveTo(x_card[1], y_card[1])
 
-    # dragging cursor to end point of the card swipe
+    # draging cursor to end point of the card swipe
     pyautogui.dragTo(x_card[2], y_card[2], 1, button='left')
 
 def prime_shields():
@@ -77,7 +77,6 @@ def prime_shields():
         print(color)
         #checking if the color is red and if it is the we will click on it
         if color == (202, 83, 100) or color == (202, 86, 105) or color == (202, 91, 109) or color == (202, 95, 112) or color == (202, 98, 117) or color == (202, 102, 120) or color == (202, 106, 124):
-            print(f"unprimed shield detected at {x_button[i]}, {y_button[i]}")
             pyautogui.click(x=x_button[i], y=y_button[i])
 
 def garbage():
